@@ -38,14 +38,15 @@ func write_image(path string, img image.Image) {
 
 func main() {
 	img := read_image("./img.png")
-	ca_img := effects.ChromaticAberration(effects.ChromaticAberrationProps{
-		Red_displacement:   [2]int{-20, 0},
-		Green_displacement: [2]int{40, 15},
-		Blue_displacement:  [2]int{0, 27},
-		Img:                img,
-		Strength:           0.5,
-	})
+	//	ca_img := effects.ChromaticAberration(effects.ChromaticAberrationProps{
+	//		Red_displacement:   [2]int{-20, 0},
+	//		Green_displacement: [2]int{40, 15},
+	//		Blue_displacement:  [2]int{0, 27},
+	//		Img:                img,
+	//		Strength:           0.5,
+	//	})
 
-	write_image("./ca_res.png", ca_img)
+	box_blur_res := effects.BoxBlur(img, 1)
+	write_image("./box_blur_res.png", box_blur_res)
 
 }
